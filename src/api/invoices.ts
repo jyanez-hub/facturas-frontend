@@ -1,16 +1,47 @@
 import apiClient from './client';
 import type { Invoice, InvoicePDF } from '../types';
 
+export interface InvoiceTaxDetail {
+  impuesto: {
+    codigo: string;
+    codigoPorcentaje: string;
+    tarifa: string;
+    baseImponible: string;
+    valor: string;
+  };
+}
+
+export interface InvoiceDetailRequest {
+  detalle: {
+    codigoPrincipal: string;
+    descripcion: string;
+    cantidad: string;
+    precioUnitario: string;
+    precioTotalSinImpuesto: string;
+    impuestos: InvoiceTaxDetail[];
+  };
+}
+
+export interface InvoiceInfoTributaria {
+  ruc: string;
+  claveAcceso: string;
+  secuencial: string;
+}
+
+export interface InvoiceInfoFactura {
+  fechaEmision: string;
+  tipoIdentificacionComprador: string;
+  identificacionComprador: string;
+  razonSocialComprador: string;
+  totalSinImpuestos: string;
+  importeTotal: string;
+}
+
 export interface CreateInvoiceData {
   factura: {
-    cliente_id: string;
-    fecha_emision: string;
-    detalles: Array<{
-      producto_id: string;
-      cantidad: number;
-      precio_unitario: number;
-      descuento?: number;
-    }>;
+    infoTributaria: InvoiceInfoTributaria;
+    infoFactura: InvoiceInfoFactura;
+    detalles: InvoiceDetailRequest[];
   };
 }
 

@@ -9,7 +9,7 @@ import {
   Divider,
   Alert,
 } from '@mui/material';
-import { Grid2 } from '@mui/material';
+import Grid2 from '../../components/common/Grid2';
 import {
   ArrowBack as ArrowBackIcon,
   Download as DownloadIcon,
@@ -115,7 +115,7 @@ export const InvoiceDetail: React.FC = () => {
       />
 
       <Grid2 container spacing={3}>
-        <Grid2 xs={12} md={8}>
+        <Grid2 item xs={12} md={8}>
           <Paper sx={{ p: 3 }}>
             <Typography variant="h6" gutterBottom>
               Información General
@@ -123,13 +123,13 @@ export const InvoiceDetail: React.FC = () => {
             <Divider sx={{ mb: 2 }} />
 
             <Grid2 container spacing={2}>
-              <Grid2 xs={12} sm={6}>
+              <Grid2 item xs={12} sm={6}>
                 <Typography variant="body2" color="textSecondary">
                   Secuencial
                 </Typography>
                 <Typography variant="body1">{invoice.secuencial || '-'}</Typography>
               </Grid2>
-              <Grid2 xs={12} sm={6}>
+              <Grid2 item xs={12} sm={6}>
                 <Typography variant="body2" color="textSecondary">
                   Fecha de Emisión
                 </Typography>
@@ -137,7 +137,7 @@ export const InvoiceDetail: React.FC = () => {
                   {formatDate(invoice.fecha_emision)}
                 </Typography>
               </Grid2>
-              <Grid2 xs={12}>
+              <Grid2 item xs={12}>
                 <Typography variant="body2" color="textSecondary">
                   Clave de Acceso
                 </Typography>
@@ -145,7 +145,7 @@ export const InvoiceDetail: React.FC = () => {
                   {invoice.clave_acceso || '-'}
                 </Typography>
               </Grid2>
-              <Grid2 xs={12} sm={6}>
+              <Grid2 item xs={12} sm={6}>
                 <Typography variant="body2" color="textSecondary">
                   Estado SRI
                 </Typography>
@@ -156,7 +156,7 @@ export const InvoiceDetail: React.FC = () => {
                 />
               </Grid2>
               {invoice.autorizacion_numero && (
-                <Grid2 xs={12} sm={6}>
+                <Grid2 item xs={12} sm={6}>
                   <Typography variant="body2" color="textSecondary">
                     Número de Autorización
                   </Typography>
@@ -169,7 +169,7 @@ export const InvoiceDetail: React.FC = () => {
           </Paper>
         </Grid2>
 
-        <Grid2 xs={12} md={4}>
+        <Grid2 item xs={12} md={4}>
           <Paper sx={{ p: 3 }}>
             <Typography variant="h6" gutterBottom>
               Totales

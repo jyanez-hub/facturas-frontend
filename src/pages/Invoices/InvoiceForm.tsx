@@ -17,7 +17,7 @@ import {
   Alert,
   Chip,
 } from '@mui/material';
-import { Grid2 } from '@mui/material';
+import Grid2 from '../../components/common/Grid2';
 import {
   Add as AddIcon,
   Delete as DeleteIcon,
@@ -185,7 +185,6 @@ export const InvoiceForm: React.FC = () => {
         const descuento = detalle.descuento || 0;
         const subtotalConDescuento = subtotal - descuento;
         const iva = product.tiene_iva ? subtotalConDescuento * 0.12 : 0;
-        const totalConIva = subtotalConDescuento + iva;
 
         return {
           detalle: {
@@ -266,7 +265,7 @@ export const InvoiceForm: React.FC = () => {
       <Paper sx={{ p: 3, mt: 2 }}>
         <Box component="form" onSubmit={handleSubmit(onSubmit)}>
           <Grid2 container spacing={2}>
-            <Grid2 xs={12} sm={6}>
+            <Grid2 item xs={12} sm={6}>
               <Autocomplete
                 options={clients}
                 getOptionLabel={(option) => `${option.identificacion} - ${option.razon_social}`}
@@ -285,7 +284,7 @@ export const InvoiceForm: React.FC = () => {
                 disabled={loading}
               />
             </Grid2>
-            <Grid2 xs={12} sm={6}>
+            <Grid2 item xs={12} sm={6}>
               <TextField
                 fullWidth
                 label="Fecha de Emisión"
@@ -302,7 +301,7 @@ export const InvoiceForm: React.FC = () => {
               />
             </Grid2>
 
-            <Grid2 xs={12}>
+            <Grid2 item xs={12}>
               <Box display="flex" justifyContent="space-between" alignItems="center" mb={2}>
                 <Typography variant="h6">Productos</Typography>
                 <Button
@@ -436,10 +435,10 @@ export const InvoiceForm: React.FC = () => {
               )}
             </Grid2>
 
-            <Grid2 xs={12}>
+            <Grid2 item xs={12}>
               <Paper sx={{ p: 2, bgcolor: 'grey.50' }}>
                 <Grid2 container spacing={2}>
-                  <Grid2 xs={12} sm={6}>
+                  <Grid2 item xs={12} sm={6}>
                     <Typography variant="body2" color="textSecondary">
                       Subtotal sin impuestos
                     </Typography>
@@ -447,7 +446,7 @@ export const InvoiceForm: React.FC = () => {
                       {formatCurrency(totals.totalSinImpuestos)}
                     </Typography>
                   </Grid2>
-                  <Grid2 xs={12} sm={6}>
+                  <Grid2 item xs={12} sm={6}>
                     <Typography variant="body2" color="textSecondary">
                       IVA (12%)
                     </Typography>
@@ -455,7 +454,7 @@ export const InvoiceForm: React.FC = () => {
                       {formatCurrency(totals.totalIva)}
                     </Typography>
                   </Grid2>
-                  <Grid2 xs={12}>
+                  <Grid2 item xs={12}>
                     <Box display="flex" justifyContent="space-between" alignItems="center" pt={1}>
                       <Typography variant="h6">TOTAL</Typography>
                       <Typography variant="h5" color="primary">
@@ -467,7 +466,7 @@ export const InvoiceForm: React.FC = () => {
               </Paper>
             </Grid2>
 
-            <Grid2 xs={12}>
+            <Grid2 item xs={12}>
               <Box display="flex" gap={2} justifyContent="flex-end">
                 <Button
                   variant="outlined"

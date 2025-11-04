@@ -9,7 +9,7 @@ import {
   Box,
   Alert,
 } from '@mui/material';
-import { Grid2 } from '@mui/material';
+import Grid2 from '../components/common/Grid2';
 import { useForm } from 'react-hook-form';
 import { useAuth } from '../contexts/AuthContext';
 import { ROUTES } from '../utils/constants';
@@ -98,12 +98,12 @@ export const Register: React.FC = () => {
 
           <Box component="form" onSubmit={handleSubmit(onSubmit)} sx={{ mt: 1 }}>
             <Grid2 container spacing={2}>
-              <Grid2 xs={12}>
+              <Grid2 item xs={12}>
                 <Typography variant="h6" gutterBottom>
                   Datos de Usuario
                 </Typography>
               </Grid2>
-              <Grid2 xs={12} sm={6}>
+              <Grid2 item xs={12} sm={6}>
                 <TextField
                   required
                   fullWidth
@@ -121,7 +121,7 @@ export const Register: React.FC = () => {
                   helperText={errors.email?.message}
                 />
               </Grid2>
-              <Grid2 xs={12} sm={6}>
+              <Grid2 item xs={12} sm={6}>
                 <TextField
                   required
                   fullWidth
@@ -139,7 +139,7 @@ export const Register: React.FC = () => {
                   helperText={errors.password?.message}
                 />
               </Grid2>
-              <Grid2 xs={12} sm={6}>
+              <Grid2 item xs={12} sm={6}>
                 <TextField
                   required
                   fullWidth
@@ -156,12 +156,12 @@ export const Register: React.FC = () => {
                 />
               </Grid2>
 
-              <Grid2 xs={12}>
+              <Grid2 item xs={12}>
                 <Typography variant="h6" gutterBottom sx={{ mt: 2 }}>
                   Datos de la Empresa
                 </Typography>
               </Grid2>
-              <Grid2 xs={12} sm={6}>
+              <Grid2 item xs={12} sm={6}>
                 <TextField
                   required
                   fullWidth
@@ -178,7 +178,7 @@ export const Register: React.FC = () => {
                   helperText={errors.ruc?.message || 'Formato: 1234567890001'}
                 />
               </Grid2>
-              <Grid2 xs={12} sm={6}>
+              <Grid2 item xs={12} sm={6}>
                 <TextField
                   required
                   fullWidth
@@ -191,7 +191,7 @@ export const Register: React.FC = () => {
                   helperText={errors.razon_social?.message}
                 />
               </Grid2>
-              <Grid2 xs={12} sm={6}>
+              <Grid2 item xs={12} sm={6}>
                 <TextField
                   fullWidth
                   id="nombre_comercial"
@@ -199,7 +199,7 @@ export const Register: React.FC = () => {
                   {...register('nombre_comercial')}
                 />
               </Grid2>
-              <Grid2 xs={12} sm={6}>
+              <Grid2 item xs={12} sm={6}>
                 <TextField
                   fullWidth
                   id="direccion"
@@ -207,7 +207,7 @@ export const Register: React.FC = () => {
                   {...register('direccion')}
                 />
               </Grid2>
-              <Grid2 xs={12} sm={6}>
+              <Grid2 item xs={12} sm={6}>
                 <TextField
                   fullWidth
                   id="telefono"
@@ -215,7 +215,7 @@ export const Register: React.FC = () => {
                   {...register('telefono')}
                 />
               </Grid2>
-              <Grid2 xs={12} sm={6}>
+              <Grid2 item xs={12} sm={6}>
                 <TextField
                   fullWidth
                   id="company_email"
@@ -224,13 +224,13 @@ export const Register: React.FC = () => {
                 />
               </Grid2>
 
-              <Grid2 xs={12}>
+              <Grid2 item xs={12}>
                 <Typography variant="body2" color="text.secondary" gutterBottom>
                   Para el primer registro, necesitarás la clave maestra. Para registros posteriores,
                   usa un código de invitación.
                 </Typography>
               </Grid2>
-              <Grid2 xs={12} sm={6}>
+              <Grid2 item xs={12} sm={6}>
                 <TextField
                   fullWidth
                   id="masterKey"
@@ -239,7 +239,7 @@ export const Register: React.FC = () => {
                   {...register('masterKey')}
                 />
               </Grid2>
-              <Grid2 xs={12} sm={6}>
+              <Grid2 item xs={12} sm={6}>
                 <TextField
                   fullWidth
                   id="invitationCode"

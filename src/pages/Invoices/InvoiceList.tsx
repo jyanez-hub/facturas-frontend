@@ -80,15 +80,6 @@ export const InvoiceList: React.FC = () => {
     }
   };
 
-  const checkPdfAvailable = async (invoiceId: string): Promise<boolean> => {
-    try {
-      await invoicePdfApi.getByInvoiceId(invoiceId);
-      return true;
-    } catch {
-      return false;
-    }
-  };
-
   if (loading) {
     return <Loading />;
   }

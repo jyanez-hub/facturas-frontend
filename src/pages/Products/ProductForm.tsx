@@ -9,7 +9,7 @@ import {
   Switch,
   FormControlLabel,
 } from '@mui/material';
-import { Grid2 } from '@mui/material';
+import Grid2 from '../../components/common/Grid2';
 import { useForm } from 'react-hook-form';
 import { productsApi } from '../../api/products';
 import type { Product } from '../../types';
@@ -88,7 +88,7 @@ export const ProductForm: React.FC = () => {
       <Paper sx={{ p: 3, mt: 2 }}>
         <Box component="form" onSubmit={handleSubmit(onSubmit)}>
           <Grid2 container spacing={2}>
-            <Grid2 xs={12} sm={6}>
+            <Grid2 item xs={12} sm={6}>
               <TextField
                 fullWidth
                 label="Código"
@@ -100,7 +100,7 @@ export const ProductForm: React.FC = () => {
                 disabled={loading}
               />
             </Grid2>
-            <Grid2 xs={12} sm={6}>
+            <Grid2 item xs={12} sm={6}>
               <TextField
                 fullWidth
                 label="Precio Unitario"
@@ -116,7 +116,7 @@ export const ProductForm: React.FC = () => {
                 disabled={loading}
               />
             </Grid2>
-            <Grid2 xs={12}>
+            <Grid2 item xs={12}>
               <TextField
                 fullWidth
                 label="Descripción"
@@ -128,7 +128,7 @@ export const ProductForm: React.FC = () => {
                 disabled={loading}
               />
             </Grid2>
-            <Grid2 xs={12}>
+            <Grid2 item xs={12}>
               <TextField
                 fullWidth
                 label="Descripción Adicional"
@@ -140,7 +140,7 @@ export const ProductForm: React.FC = () => {
                 disabled={loading}
               />
             </Grid2>
-            <Grid2 xs={12}>
+            <Grid2 item xs={12}>
               <FormControlLabel
                 control={
                   <Switch
@@ -151,7 +151,7 @@ export const ProductForm: React.FC = () => {
                 label="Tiene IVA"
               />
             </Grid2>
-            <Grid2 xs={12}>
+            <Grid2 item xs={12}>
               <Box display="flex" gap={2} justifyContent="flex-end">
                 <Button
                   variant="outlined"

@@ -6,7 +6,7 @@ import {
   Card,
   CardContent,
 } from '@mui/material';
-import { Grid2 } from '@mui/material';
+import Grid2 from '../components/common/Grid2';
 import {
   Receipt as ReceiptIcon,
   TrendingUp as TrendingUpIcon,
@@ -75,7 +75,7 @@ export const Dashboard: React.FC = () => {
 
       <Grid2 container spacing={3} sx={{ mt: 2 }}>
         {/* Tarjetas de estadísticas */}
-        <Grid2 xs={12} sm={4}>
+        <Grid2 item xs={12} sm={4}>
           <Card>
             <CardContent>
               <Box display="flex" alignItems="center" justifyContent="space-between">
@@ -91,7 +91,7 @@ export const Dashboard: React.FC = () => {
           </Card>
         </Grid2>
 
-        <Grid2 xs={12} sm={4}>
+        <Grid2 item xs={12} sm={4}>
           <Card>
             <CardContent>
               <Box display="flex" alignItems="center" justifyContent="space-between">
@@ -107,7 +107,7 @@ export const Dashboard: React.FC = () => {
           </Card>
         </Grid2>
 
-        <Grid2 xs={12} sm={4}>
+        <Grid2 item xs={12} sm={4}>
           <Card>
             <CardContent>
               <Box display="flex" alignItems="center" justifyContent="space-between">
@@ -124,7 +124,7 @@ export const Dashboard: React.FC = () => {
         </Grid2>
 
         {/* Facturas recientes */}
-        <Grid2 xs={12}>
+        <Grid2 item xs={12}>
           <Paper sx={{ p: 2 }}>
             <Typography variant="h6" gutterBottom>
               Facturas Recientes

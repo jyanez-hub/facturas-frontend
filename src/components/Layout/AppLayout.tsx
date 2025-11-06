@@ -24,6 +24,8 @@ import {
   Inventory as InventoryIcon,
   Receipt as ReceiptIcon,
   Logout as LogoutIcon,
+  Badge as BadgeIcon,
+  Business as BusinessIcon,
 } from '@mui/icons-material';
 import { useAuth } from '../../contexts/AuthContext';
 import { ROUTES } from '../../utils/constants';
@@ -35,6 +37,8 @@ const menuItems = [
   { text: 'Clientes', icon: <PeopleIcon />, path: ROUTES.CLIENTS },
   { text: 'Productos', icon: <InventoryIcon />, path: ROUTES.PRODUCTS },
   { text: 'Facturas', icon: <ReceiptIcon />, path: ROUTES.INVOICES },
+  { text: 'Tipos de ID', icon: <BadgeIcon />, path: ROUTES.IDENTIFICATION_TYPES },
+  { text: 'Mi Empresa', icon: <BusinessIcon />, path: ROUTES.ISSUING_COMPANY },
 ];
 
 export const AppLayout: React.FC = () => {

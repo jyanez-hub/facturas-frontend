@@ -6,11 +6,17 @@ import {
   Paper,
   TextField,
   Typography,
+  FormControl,
+  InputLabel,
+  Select,
+  MenuItem,
+  FormHelperText,
 } from '@mui/material';
 import Grid2 from '../../components/common/Grid2';
-import { useForm } from 'react-hook-form';
+import { useForm, Controller } from 'react-hook-form';
 import { clientsApi } from '../../api/clients';
-import type { Client } from '../../types';
+import { identificationTypeApi } from '../../api/identificationType';
+import type { Client, IdentificationType } from '../../types';
 import { ErrorAlert } from '../../components/common/ErrorAlert';
 import { ROUTES } from '../../utils/constants';
 
@@ -19,6 +25,7 @@ export const ClientForm: React.FC = () => {
   const navigate = useNavigate();
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState('');
+  const [identificationTypes, setIdentificationTypes] = useState<IdentificationType[]>([]);
   const isEdit = !!id;
 
   const {
@@ -26,13 +33,24 @@ export const ClientForm: React.FC = () => {
     handleSubmit,
     formState: { errors },
     reset,
+    control,
   } = useForm<Client>();
 
   useEffect(() => {
+    loadIdentificationTypes();
     if (isEdit) {
       loadClient();
     }
   }, [id]);
+
+  const loadIdentificationTypes = async () => {
+    try {
+      const types = await identificationTypeApi.getAll();
+      setIdentificationTypes(types);
+    } catch (err) {
+      console.error('Error loading identification types:', err);
+    }
+  };
 
   const loadClient = async () => {
     if (!id) return;
@@ -80,16 +98,36 @@ export const ClientForm: React.FC = () => {
         <Box component="form" onSubmit={handleSubmit(onSubmit)}>
           <Grid2 container spacing={2}>
             <Grid2 item xs={12} sm={6}>
-              <TextField
-                fullWidth
-                label="Tipo Identificación ID"
-                {...register('tipo_identificacion_id', {
-                  required: 'El tipo de identificación es requerido',
-                })}
-                error={!!errors.tipo_identificacion_id}
-                helperText={errors.tipo_identificacion_id?.message}
-                disabled={loading}
-              />
+              <FormControl fullWidth error={!!errors.tipo_identificacion_id} disabled={loading}>
+                <InputLabel>Tipo de Identificación *</InputLabel>
+                <Controller
+                  name="tipo_identificacion_id"
+                  control={control}
+                  defaultValue=""
+                  rules={{ required: 'El tipo de identificación es requerido' }}
+                  render={({ field }) => (
+                    <Select {...field} label="Tipo de Identificación *">
+                      {identificationTypes.length === 0 ? (
+                        <MenuItem value="">
+                          <em>No hay tipos disponibles</em>
+                        </MenuItem>
+                      ) : (
+                        identificationTypes.map((type) => (
+                          <MenuItem key={type._id} value={type._id}>
+                            {type.codigo} - {type.nombre}
+                          </MenuItem>
+                        ))
+                      )}
+                    </Select>
+                  )}
+                />
+                {errors.tipo_identificacion_id && (
+                  <FormHelperText>{errors.tipo_identificacion_id.message}</FormHelperText>
+                )}
+                {identificationTypes.length === 0 && (
+                  <FormHelperText>Primero debes crear un tipo de identificación</FormHelperText>
+                )}
+              </FormControl>
             </Grid2>
             <Grid2 item xs={12} sm={6}>
               <TextField

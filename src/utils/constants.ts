@@ -15,6 +15,11 @@ export const ROUTES = {
   INVOICES: '/invoices',
   INVOICE_NEW: '/invoices/new',
   INVOICE_DETAIL: (id: string) => `/invoices/${id}`,
+  IDENTIFICATION_TYPES: '/identification-types',
+  IDENTIFICATION_TYPE_NEW: '/identification-types/new',
+  IDENTIFICATION_TYPE_EDIT: (id: string) => `/identification-types/${id}`,
+  ISSUING_COMPANY: '/issuing-company',
+  ISSUING_COMPANY_EDIT: (id: string) => `/issuing-company/${id}`,
 };
 
 export const STORAGE_KEYS = {

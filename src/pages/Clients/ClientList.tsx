@@ -24,7 +24,7 @@ import {
   Delete as DeleteIcon,
 } from '@mui/icons-material';
 import { clientsApi } from '../../api/clients';
-import type { Client } from '../../types';
+import { Client } from '../../types';
 import { Loading } from '../../components/common/Loading';
 import { ErrorAlert } from '../../components/common/ErrorAlert';
 import { ROUTES } from '../../utils/constants';

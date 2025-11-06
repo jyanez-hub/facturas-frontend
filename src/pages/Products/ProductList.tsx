@@ -25,7 +25,7 @@ import {
   Delete as DeleteIcon,
 } from '@mui/icons-material';
 import { productsApi } from '../../api/products';
-import type { Product } from '../../types';
+import { Product } from '../../types';
 import { Loading } from '../../components/common/Loading';
 import { ErrorAlert } from '../../components/common/ErrorAlert';
 import { formatCurrency } from '../../utils/formatters';

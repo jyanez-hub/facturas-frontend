@@ -81,6 +81,27 @@ export interface InvoicePDF {
 export interface IdentificationType {
   _id?: string;
   codigo: string;
-  descripcion: string;
+  nombre: string;
+  descripcion?: string;
+}
+
+export interface IssuingCompany {
+  _id?: string;
+  ruc: string;
+  razon_social: string;
+  nombre_comercial?: string;
+  direccion?: string;
+  direccion_matriz?: string;
+  direccion_establecimiento?: string;
+  telefono?: string;
+  email?: string;
+  codigo_establecimiento?: string;
+  punto_emision?: string;
+  tipo_ambiente?: number;
+  tipo_emision?: number;
+  obligado_contabilidad?: boolean;
+  certificate?: string;
+  certificate_password?: string;
+  user_id?: string;
 }
 

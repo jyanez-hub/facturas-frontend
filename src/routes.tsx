@@ -11,6 +11,10 @@ import { ProductForm } from './pages/Products/ProductForm';
 import { InvoiceList } from './pages/Invoices/InvoiceList';
 import { InvoiceForm } from './pages/Invoices/InvoiceForm';
 import { InvoiceDetail } from './pages/Invoices/InvoiceDetail';
+import { IdentificationTypeList } from './pages/IdentificationTypes/IdentificationTypeList';
+import { IdentificationTypeForm } from './pages/IdentificationTypes/IdentificationTypeForm';
+import { IssuingCompanyList } from './pages/IssuingCompany/IssuingCompanyList';
+import { IssuingCompanyForm } from './pages/IssuingCompany/IssuingCompanyForm';
 import { ROUTES } from './utils/constants';
 
 export const AppRoutes = () => {
@@ -46,6 +50,15 @@ export const AppRoutes = () => {
         <Route path={ROUTES.INVOICES} element={<InvoiceList />} />
         <Route path={ROUTES.INVOICE_NEW} element={<InvoiceForm />} />
         <Route path="/invoices/:id" element={<InvoiceDetail />} />
+        
+        {/* Tipos de Identificación */}
+        <Route path={ROUTES.IDENTIFICATION_TYPES} element={<IdentificationTypeList />} />
+        <Route path={ROUTES.IDENTIFICATION_TYPE_NEW} element={<IdentificationTypeForm />} />
+        <Route path="/identification-types/:id" element={<IdentificationTypeForm />} />
+        
+        {/* Empresa Emisora */}
+        <Route path={ROUTES.ISSUING_COMPANY} element={<IssuingCompanyList />} />
+        <Route path="/issuing-company/:id" element={<IssuingCompanyForm />} />
 
         {/* Ruta por defecto */}
         <Route path="*" element={<Navigate to={ROUTES.DASHBOARD} replace />} />

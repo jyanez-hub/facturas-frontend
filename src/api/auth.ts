@@ -24,6 +24,13 @@ export interface RegisterData {
   certificatePassword?: string;
 }
 
+export interface RegistrationStatus {
+  firstRegistration: boolean;
+  registrationDisabled: boolean;
+  requiresInvitation: boolean;
+  masterKeyRequired: boolean;
+}
+
 export const authApi = {
   login: async (credentials: LoginCredentials): Promise<AuthResponse> => {
     const response = await apiClient.post<AuthResponse>('/auth', credentials);
@@ -32,6 +39,11 @@ export const authApi = {
 
   register: async (data: RegisterData): Promise<AuthResponse> => {
     const response = await apiClient.post<AuthResponse>('/register', data);
+    return response.data;
+  },
+
+  getStatus: async (): Promise<RegistrationStatus> => {
+    const response = await apiClient.get<RegistrationStatus>('/status');
     return response.data;
   },
 };
